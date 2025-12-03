@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="id">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Donasi - Volunteer Tanggap Bencana</title>
+<link rel="stylesheet" href="/assets/css/style.css"/></head>
+<body>
+  <header class="topbar"><div class="container"><h1>Volunteer Tanggap Bencana</h1></div></header>
+  <main class="container">
+    <section class="card">
+      <h2>Donasi & Transparansi</h2>
+      <form id="donasi-form">
+        <div class="form-row"><input type="text" id="nama" placeholder="Nama (opsional)"/></div>
+        <div class="form-row"><input type="number" id="jumlah" placeholder="Jumlah (Rupiah)" required/></div>
+        <button type="submit">Donasi</button>
+      </form>
+      <div id="msg"></div>
+    </section>
+
+    <section class="card">
+      <h3>Riwayat Donasi</h3>
+      <div id="donasi-list">Memuat...</div>
+    </section>
+  </main>
+  <footer class="footer">© 2025 Volunteer Tanggap Bencana</footer>
+  <script src="/assets/js/api.js"></script>
+  <script>
+    var form = document.getElementById('donasi-form');
+    var msg = document.getElementById('msg');
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var nama = document.getElementById('nama').value;
+      var jumlah = Number(document.getElementById('jumlah').value);
+      try {
+        await api.post('/donasi', { nama: nama, jumlah: jumlah });
+        msg.innerText = 'Terima kasih atas donasi Anda.';
+        load();
+      } catch(err){ msg.innerText = 'Gagal donasi'; }
+    });
+    async function load(){
+      var list = await api.get('/donasi');
+      var el = document.getElementById('donasi-list');
+      if(!list.length) el.innerText = 'Belum ada donasi';
+      else {
+        var out = '';
+        for(var i=0;i<list.length;i++){
+          var d = list[i];
+          out += '<div>'+(i+1)+'. '+ (d.nama||'Anonim') + ' — Rp ' + Number(d.jumlah).toLocaleString() + ' (' + new Date(d.tanggal).toLocaleString() + ')</div>';
+        }
+        el.innerHTML = out;
+      }
+    }
+    load();
+  </script>
+</body>
+</html>
