@@ -1,13 +1,17 @@
-/* Reset dan Dasar */
+/* ========================================================== */
+/* 1. RESET & DASAR                         */
+/* ========================================================== */
 body {
     margin: 0;
-    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
-    padding-top: 65px;
-    /* Memberi ruang untuk header tetap */
+    /* Memberi ruang yang cukup untuk header fixed (tinggi header + jarak ekstra, total 80px) */
+    padding-top: 80px;
 }
 
-/* Header */
+/* ========================================================== */
+/* 2. HEADER & LOGO                         */
+/* ========================================================== */
 header {
     background-image: linear-gradient(to right, #001f3f, #0074D9);
     color: white;
@@ -17,41 +21,30 @@ header {
     gap: 25px;
     align-items: center;
     position: fixed;
-    /* Membuat header tetap di atas */
     top: 0;
     width: 100%;
     box-sizing: border-box;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    /* Pastikan header di lapisan teratas */
 }
 
 /* Styling Logo */
 .header-logo {
-    /* Logo berada di kolom 1 */
     grid-column: 1 / 2;
     width: 100%;
-    /* Sesuai dengan lebar kolom (50px) */
     height: auto;
     max-height: 40px;
-    /* Batas tinggi logo */
     object-fit: contain;
-    margin-right: 25px;
-    /* Memastikan logo terlihat utuh */
 }
 
-/* Mengelompokkan Judul dan Keterangan di satu area */
+/* Mengelompokkan Judul dan Keterangan */
 .header-text {
-    /* Agar h1 dan p berada di kolom kiri (grid area 1) */
     grid-column: 2 / 3;
 }
 
 /* Tombol Menu */
-/* Tombol Menu */
 .menu-button {
-    /* Tombol berada di kolom 3 */
     grid-column: 3 / 4;
-    grid-row: 1 / 3;
     background: none;
     border: none;
     color: white;
@@ -61,49 +54,43 @@ header {
 }
 
 .page-indicator {
-    /* Styling agar keterangan terlihat halus */
     font-size: 14px;
     margin: 0;
     padding: 0;
     opacity: 0.8;
-    grid-column: 1 / 2;
-    /* Pastikan ia berada di kolom yang sama dengan h1 */
 }
 
 /* Menghilangkan Margin Bawaan h1 */
 header h1 {
     margin: 0;
+    line-height: 1.2;
 }
 
 .menu-button:hover {
     color: #c0c0c0;
 }
 
-/* Sidebar (Menu Navigasi - Efek Overlay) */
+/* ========================================================== */
+/* 3. SIDEBAR NAVIGASI                      */
+/* ========================================================== */
 .sidebar {
     height: 100%;
     width: 0;
-    /* Awalnya tersembunyi */
     position: fixed;
-    /* Kunci posisi, penting untuk Overlay */
     z-index: 999;
-    /* Di bawah header, tetapi di atas konten */
-    top: 65px;
+    top: 80px;
+    /* Dimulai di bawah header + jarak ekstra */
     right: 0;
-    /* Posisikan di kanan */
     background-image: linear-gradient(to bottom, #001a35, #003366);
     overflow-x: hidden;
     transition: 0.5s;
-    /* Efek transisi */
-    padding-top: 50px;
-    /* Memberi ruang di bawah header */
+    padding-top: 10px;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Kelas untuk Menampilkan Sidebar */
 .sidebar.open {
     width: 280px;
-    /* Lebar saat terbuka */
 }
 
 /* Item di Sidebar */
@@ -121,24 +108,31 @@ header h1 {
     display: block;
     transition: 0.3s;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    /* Garis pemisah halus */
 }
 
-.sidebar li a:hover {
+.sidebar li a:hover,
+.sidebar li a.active {
+    /* Styling untuk link yang sedang aktif */
     color: #f1f1f1;
-    background-color: rgba(0, 116, 217, 0.4);
+    background-color: rgba(0, 116, 217, 0.6);
     padding-left: 35px;
-    /* Sedikit efek dorongan saat di-hover */
 }
 
-/* Konten Utama */
+/* ========================================================== */
+/* 4. KONTEN UTAMA (KARTU PUTIH)            */
+/* ========================================================== */
 main {
     padding: 20px;
     max-width: 900px;
     margin: 0 auto;
+    /* Margin dan Padding-top sudah diatur oleh BODY, jadi di sini 0 */
 }
 
-section {
+/* Aturan dasar yang berlaku untuk SEMUA kolom konten */
+#beranda,
+#tentang,
+#donasi,
+#kontak {
     background-color: white;
     padding: 30px;
     margin-bottom: 20px;
@@ -146,9 +140,79 @@ section {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Opsional: Membuat sedikit opacity pada konten saat menu terbuka */
-/*
-body.menu-open main {
-    opacity: 0.5; 
+/* Pengaturan Judul (H2) yang Di-bold */
+.section-heading {
+    font-size: 26px;
+    font-weight: 700;
+    color: #222;
+    margin-top: 0;
+    margin-bottom: 15px;
+    /* Jarak antara judul dan konten di bawahnya */
+    border-bottom: 2px solid #eee;
+    /* Garis pemisah halus */
+    padding-bottom: 10px;
+    line-height: 1.3;
 }
-*/
+
+/* Pengaturan Konten (Paragraf, dll.) */
+.section-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* --- Penyesuaian Style Unik per ID --- */
+
+#beranda {
+    text-align: center;
+}
+
+#tentang {
+    text-align: justify;
+    border-left: 5px solid #0074D9;
+    padding: 40px;
+}
+
+#donasi {
+    text-align: center;
+    background-color: #fcfcfc;
+    border-left: 5px solid #0074D9;
+}
+
+#kontak {
+    text-align: left;
+    border-left: 5px solid #0074D9;
+    padding-left: 25px;
+}
+
+/* Styling Tombol Donasi */
+.donate-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #ff4136;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.donate-button:hover {
+    background-color: #cc291e;
+}
+
+/* ========================================================== */
+/* 5. FOOTER (Hak Cipta)                    */
+/* ========================================================== */
+.footer {
+    background-image: linear-gradient(to right, #001f3f, #0074D9);
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 14px;
+    /* Memberi sedikit jarak margin atas agar tidak menempel langsung ke section terakhir */
+    margin-top: 30px; 
+}
