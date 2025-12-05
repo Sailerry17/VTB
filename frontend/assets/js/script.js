@@ -1,17 +1,21 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Kode ini akan dieksekusi HANYA setelah seluruh DOM (HTML) siap.
+document.addEventListener('DOMContentLoaded', function () {
+    // Dapatkan elemen-elemen yang diperlukan
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    // const body = document.body; // Tidak diperlukan lagi untuk efek overlay
 
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mainNav = document.getElementById('main-nav');
+    // Tambahkan event listener untuk tombol menu
+    menuToggle.addEventListener('click', function () {
+        // Toggle (menambahkan/menghapus) kelas 'open' pada sidebar
+        sidebarMenu.classList.toggle('open');
+    });
 
-    // Cek apakah kedua elemen ditemukan, untuk menghindari error jika ID salah.
-    if (hamburgerBtn && mainNav) {
-        hamburgerBtn.onclick = function() {
-            mainNav.classList.toggle('open');
-        };
-    } else {
-        // Jika Anda melihat pesan ini di Console (F12),
-        // berarti ada kesalahan ID atau elemen tidak ada di HTML.
-        console.error("Elemen Hamburger atau Navigasi (main-nav/hamburger-btn) tidak ditemukan di DOM.");
-    }
+    // Opsional: Menutup menu ketika salah satu link diklik (untuk navigasi)
+    const sidebarLinks = sidebarMenu.querySelectorAll('a');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            // Tutup sidebar saat link diklik
+            sidebarMenu.classList.remove('open');
+        });
+    });
 });

@@ -1,48 +1,100 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <title>Desain Web Sederhana</title>
-    <link rel="stylesheet" href="/VTB/frontend/assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web VTB</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
-    <script src="/VTB/frontend/assets/js/script.js"></script> 
-</body>
-
     <header>
-        <h1>Nama Situs Web Anda</h1>
+        <img src="assets/img/Logo-vtb.png" alt="Logo-VTB" class="header-logo">
+        <div class="header-text">
+            <h1>VTB NSP</h1>
+            <p class="page-indicator">Beranda</p>
+        </div>
+
+        <button class="menu-button" id="menuToggle">
+            &#9776;
+        </button>
     </header>
-    <div>
-    <nav>
-      <a href="/VTB/frontend/index.html">Beranda</a>
-      <a href="/VTB/frontend/visi-misi.html">Struktural</a>
-      <a href="/VTB/frontend/donasi.html">Donasi</a>
-      <a href="/VTB/frontend/about.html">Tentang</a>
-      <a href="/VTB/frontend/setting.html">pengaturan</a>
+
+    <nav class="sidebar" id="sidebarMenu">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="berita.html">Berita</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="donasi.html">Donasi</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
     </nav>
-    </div>
 
-    <div class="container">
-        <main class="main-content">
-            <h2>Judul Konten Utama</h2>
-            <p>Ini adalah area konten utama. Di sini Anda bisa menempatkan artikel, deskripsi produk, atau informasi penting lainnya.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </main>
+    <main>
 
-        <aside class="sidebar">
-            <h3>Sidebar</h3>
-            <ul>
-                <li>Item Sidebar 1</li>
-                <li>Item Sidebar 2</li>
-                <li>Item Sidebar 3</li>
-            </ul>
-        </aside>
-    </div>
+        <section id="beranda">
+            <h2>Selamat Datang</h2>
+            <p>Ini adalah konten utama halaman web Anda. Menu akan muncul di atas konten tanpa menggesernya.</p>
+        </section>
 
-    <footer>
-        <p>&copy; 2025 Desain Web Sederhana. Hak Cipta Dilindungi.</p>
-    </footer>
+
+        <section id="tentang">
+            <h2>Tentang Kami</h2>
+            <p>Kami adalah perusahaan yang berdedikasi pada visi dan misi kami. Halaman ini menjelaskan latar belakang
+                kami.</p>
+        </section>
+
+        <section id="donasi">
+            <h2>Dukung Kami Melalui Donasi</h2>
+            <p>Dukungan Anda sangat berarti bagi kelanjutan proyek dan layanan kami. Silakan berdonasi melalui tautan
+                berikut.</p>
+            <button
+                style="padding: 10px 20px; background-color: #ff4136; color: white; border: none; cursor: pointer;">Donasi
+                Sekarang!</button>
+        </section>
+
+        <section id="kontak">
+            <h2>Hubungi Kami</h2>
+            <p>Jika Anda memiliki pertanyaan, silakan hubungi kami melalui email atau telepon.</p>
+            <address>
+                Email: info@vtb.com<br>
+                Telepon: (021) XXXX XXXX
+            </address>
+        </section>
+
+    </main>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
+</nav>
+
+<div class="container">
+    <main class="main-content">
+        <h2>Judul Konten Utama</h2>
+        <p>Ini adalah area konten utama. Di sini Anda bisa menempatkan artikel, deskripsi produk, atau informasi penting
+            lainnya.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua.</p>
+    </main>
+
+    <aside class="sidebar">
+        <h3>Sidebar</h3>
+        <ul>
+            <li>Item Sidebar 1</li>
+            <li>Item Sidebar 2</li>
+            <li>Item Sidebar 3</li>
+        </ul>
+    </aside>
+</div>
+
+<footer>
+    <p>&copy; 2025 Desain Web Sederhana. Hak Cipta Dilindungi.</p>
+</footer>
 
 </body>
+
 </html>

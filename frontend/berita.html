@@ -1,78 +1,72 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desain Web Sederhana</title>
-    <link rel="stylesheet" href="/VTB/frontend/assets/css/style.css">
+    <title>Web VTB</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
     <header>
-        <h1>Nama Situs Web Anda</h1>
+        <img src="assets/img/Logo-vtb.png" alt="Logo-VTB" class="header-logo">
+        <div class="header-text">
+            <h1>VTB NSP</h1>
+            <p class="page-indicator">Berita</p>
+        </div>
+
+        <button class="menu-button" id="menuToggle">
+            &#9776;
+        </button>
     </header>
-    <div>
-    <nav>
-      <a href="/VTB/frontend/index.html">Beranda</a>
-      <a href="/VTB/frontend/visi-misi.html">Visi-Misi</a>
-      <a href="/VTB/frontend/donasi.html">Donasi</a>
-      <a href="/VTB/frontend/about.html">Tentang</a>
-      <a href="/VTB/frontend/setting.html">pengaturan</a>
+
+    <nav class="sidebar" id="sidebarMenu">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="berita.html">Berita</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="donasi.html">Donasi</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
     </nav>
-    </div>
 
-    <div class="container">
-      <main class="main-content">
-        <h2>VOLUNTEER TANGGAP BENCANA</h2>
-        <p>VTB Universitas Nusa Putra merupakan wadah berhimpunnya Mahasiswa </p>
-        <p>Universitas Nusa Putra yang memiliki jiwa sosial tinggi dan peduli</p>
-        <p>terhadap sesama makhluk hidup.</p>
-      </main>
-    </div>
-    <!-- TOP BANNER -->
-    <section class="banner"></section>
+    <main>
 
-    <!-- GRID SECTION -->
-    <section class="grid-section">
-        <div class="grid-box"></div>
-        <div class="grid-box"></div>
-    </section>
+        <section id="beranda">
+            <h2>Selamat Datang</h2>
+            <p>Ini adalah konten utama halaman web Anda. Menu akan muncul di atas konten tanpa menggesernya.</p>
+        </section>
 
-    <!-- TITLE -->
-    <h2 class="main-title">VOLUNTEER TANGGAP BENCANA</h2>
 
-    <!-- MAIN IMAGE -->
-    <div class="image-center">
-        <img src="assets/img/Logo-VTB.png" class="main-img" alt="Logo VTB NSP">
-    </div>
+        <section id="tentang">
+            <h2>Tentang Kami</h2>
+            <p>Kami adalah perusahaan yang berdedikasi pada visi dan misi kami. Halaman ini menjelaskan latar belakang
+                kami.</p>
+        </section>
 
-    <!-- DESCRIPTION -->
-    <section class="desc-box">
-        <p>
-            VTB Universitas Nusa Putra merupakan wadah berhimpunnya Mahasiswa 
-            Universitas Nusa Putra yang memiliki jiwa sosial tinggi dan peduli 
-            terhadap sesama makhluk hidup.
-        </p>
-    </section>
+        <section id="donasi">
+            <h2>Dukung Kami Melalui Donasi</h2>
+            <p>Dukungan Anda sangat berarti bagi kelanjutan proyek dan layanan kami. Silakan berdonasi melalui tautan
+                berikut.</p>
+            <button
+                style="padding: 10px 20px; background-color: #ff4136; color: white; border: none; cursor: pointer;">Donasi
+                Sekarang!</button>
+        </section>
 
-    <!-- VISI & MISI -->
-    <h2 class="main-title">Visi & Misi</h2>
+        <section id="kontak">
+            <h2>Hubungi Kami</h2>
+            <p>Jika Anda memiliki pertanyaan, silakan hubungi kami melalui email atau telepon.</p>
+            <address>
+                Email: info@vtb.com<br>
+                Telepon: (021) XXXX XXXX
+            </address>
+        </section>
 
-    <section class="visimisi">
-        <h3>Visi</h3>
-        <p>
-            VTB Universitas Nusa Putra merupakan wadah berhimpunnya 
-            Mahasiswa Universitas Nusa Putra yang memiliki jiwa sosial tinggi 
-            dan peduli terhadap sesama makhluk hidup.
-        </p>
+    </main>
 
-        <h3>Misi</h3>
-        <p>
-            VTB Universitas Nusa Putra merupakan wadah berhimpunnya 
-            Mahasiswa Universitas Nusa Putra yang memiliki jiwa sosial tinggi 
-            dan peduli terhadap sesama makhluk hidup.
-        </p>
-    </section>
-
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>

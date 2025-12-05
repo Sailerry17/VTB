@@ -1,187 +1,154 @@
-/* 1. Reset Dasar dan Pengaturan Font */
-* {
+/* Reset dan Dasar */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    padding-top: 65px;
+    /* Memberi ruang untuk header tetap */
+}
+
+/* Header */
+header {
+    background-image: linear-gradient(to right, #001f3f, #0074D9);
+    color: white;
+    padding: 12px 20px;
+    display: grid;
+    grid-template-columns: 50px 1fr auto;
+    gap: 25px;
+    align-items: center;
+    position: fixed;
+    /* Membuat header tetap di atas */
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    /* Pastikan header di lapisan teratas */
+}
+
+/* Styling Logo */
+.header-logo {
+    /* Logo berada di kolom 1 */
+    grid-column: 1 / 2;
+    width: 100%;
+    /* Sesuai dengan lebar kolom (50px) */
+    height: auto;
+    max-height: 40px;
+    /* Batas tinggi logo */
+    object-fit: contain;
+    margin-right: 25px;
+    /* Memastikan logo terlihat utuh */
+}
+
+/* Mengelompokkan Judul dan Keterangan di satu area */
+.header-text {
+    /* Agar h1 dan p berada di kolom kiri (grid area 1) */
+    grid-column: 2 / 3;
+}
+
+/* Tombol Menu */
+/* Tombol Menu */
+.menu-button {
+    /* Tombol berada di kolom 3 */
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.page-indicator {
+    /* Styling agar keterangan terlihat halus */
+    font-size: 14px;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    opacity: 0.8;
+    grid-column: 1 / 2;
+    /* Pastikan ia berada di kolom yang sama dengan h1 */
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: #F9F9F9;
-    color: #343A40;
-}
-
-/* 2. Header (Kepala Halaman) */
-header {
-    background: #007BFF;
-    color: #FFFFFF;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
-    /* Aturan untuk Logo dan Ikon Tiga Garis */
-    display: flex; 
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 5%;
-    position: relative; 
-    z-index: 9000;
-}
-
+/* Menghilangkan Margin Bawaan h1 */
 header h1 {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 2.5rem;
+    margin: 0;
 }
 
-.header-logo {
-    height: 45px;
-    width: auto;
-    vertical-align: middle;
+.menu-button:hover {
+    color: #c0c0c0;
 }
 
-/* ------------------------------------------- */
-/* *** PERBAIKAN Z-INDEX PADA TOMBOL HAMBURGER *** */
-/* ------------------------------------------- */
-.hamburger-menu {
-    background: transparent;
-    border: none;
-    color: #FFFFFF;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: block; 
-    
-    /* Z-INDEX DAN POSISI UNTUK MEMASTIKAN BISA DIKLIK */
-    position: relative; /* HARUS ADA */
-    z-index: 9999; /* Z-index tertinggi */
-}
-
-/* ------------------------------------------- */
-/* Navigasi Sidebar (Berlaku Global di Semua Ukuran) */
-/* ------------------------------------------- */
-.nav-wrapper {
-    display: none;
-}
-
-nav.main-nav {
-    position: fixed;
-    top: 0;
-    
-    /* *** PERBAIKAN: TAMBAHKAN UNIT 'px' *** */
-    left: -250px; /* Nilai awal disembunyikan */
-    
-    height: 100%;
-    width: 250px;
-    background-color: #343A40; 
-    display: flex; /* Tambahkan display flex di sini */
-    flex-direction: column; 
-    align-items: flex-start;
-    padding-top: 60px; 
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    transition: left 0.3s ease-in-out; 
-    z-index: 1000;
-    max-width: none;
-}
-
-nav.main-nav a {
-    color: #FFFFFF;
-    text-decoration: none;
-    width: 100%;
-    padding: 15px 20px;
-    display: block;
-    border-bottom: 1px solid #495057;
-    transition: background-color 0.3s;
-    align-items: center;
-}
-
-nav.main-nav a:hover {
-    background-color: #007BFF;
-    align-items: center;
-}
-
-nav.main-nav.open {
-    left: 0; /* Pindahkan navigasi ke posisi terlihat */
-}
-
-/* 4. Wadah Konten Utama */
-.container {
-    width: 90%;
-    max-width: 1200px; 
-    margin: 20px auto;
-    overflow: hidden;
-    padding: 0;
-    text-align: center;
-}
-
-/* 5. Tata Letak Main Content dan Sidebar (Gaya Flexbox - Desktop Default) */
-.container:last-of-type { 
-    display: flex;
-    gap: 30px; 
-}
-
-/* *** PERBAIKAN: Menggabungkan kelas konten yang berulang *** */
-.main-content,
-.main-content-visi,
-.main-content-setting {
-    flex: 3; 
-    background: #FFFFFF;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
+/* Sidebar (Menu Navigasi - Efek Overlay) */
 .sidebar {
-    flex: 1; 
-    background: #FFFFFF; 
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    width: 0;
+    /* Awalnya tersembunyi */
+    position: fixed;
+    /* Kunci posisi, penting untuk Overlay */
+    z-index: 999;
+    /* Di bawah header, tetapi di atas konten */
+    top: 65px;
+    right: 0;
+    /* Posisikan di kanan */
+    background-image: linear-gradient(to bottom, #001a35, #003366);
+    overflow-x: hidden;
+    transition: 0.5s;
+    /* Efek transisi */
+    padding-top: 50px;
+    /* Memberi ruang di bawah header */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
 }
 
-.sidebar h3 {
-    color: #007BFF; 
-    margin-bottom: 10px;
-    border-bottom: 2px solid #E9ECEF;
-    padding-bottom: 5px;
+/* Kelas untuk Menampilkan Sidebar */
+.sidebar.open {
+    width: 280px;
+    /* Lebar saat terbuka */
 }
 
+/* Item di Sidebar */
 .sidebar ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
-.sidebar li {
-    padding: 10px 0;
-    border-bottom: 1px dashed #CED4DA; 
+.sidebar li a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #b0c4de;
+    display: block;
+    transition: 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Garis pemisah halus */
 }
 
-.sidebar li:last-child {
-    border-bottom: none;
+.sidebar li a:hover {
+    color: #f1f1f1;
+    background-color: rgba(0, 116, 217, 0.4);
+    padding-left: 35px;
+    /* Sedikit efek dorongan saat di-hover */
 }
 
-/* 6. Footer */
-footer {
-    background: #007BFF;
-    color: #FFFFFF;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: 30px;
-    font-size: 0.9rem;
+/* Konten Utama */
+main {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-/* ------------------------------------------------ */
-/* 7. Responsif (Hanya untuk Kolom Konten) */
-/* ------------------------------------------------ */
-@media (max-width: 768px) {
-    /* HANYA ubah tata letak kolom konten/sidebar menjadi tumpukan */
-    .container:last-of-type {
-        flex-direction: column;
-        gap: 20px;
-    }
+section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* TAMBAHKAN INI SEMENTARA DI AKHIR CSS UNTUK DEBUGGING */
-.hamburger-menu {
-    pointer-events: auto !important; /* Memastikan tombol merespons klik */
+/* Opsional: Membuat sedikit opacity pada konten saat menu terbuka */
+/*
+body.menu-open main {
+    opacity: 0.5; 
 }
+*/

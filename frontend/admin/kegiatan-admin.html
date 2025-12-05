@@ -1,1 +1,57 @@
-<!doctype html><html><head><meta charset='utf-8'/><meta name='viewport' content='width=device-width,initial-scale=1'/><title>Kegiatan Admin</title><link rel='stylesheet' href='/assets/css/style.css'/></head><body><main class='container'><section class='card'><h2>CRUD Kegiatan</h2><form id='f'><div class='form-row'><input id='judul' placeholder='Judul'/></div><div class='form-row'><input id='lokasi' placeholder='Lokasi'/></div><div class='form-row'><input id='tanggal' type='date'/></div><div><button type='submit'>Tambah</button></div></form><div id='list'></div></section></main><script src='/assets/js/api.js'></script><script>var token=localStorage.getItem('token');if(!token) location.href='/admin/login.html';document.getElementById('f').addEventListener('submit',async function(e){e.preventDefault();await api.post('/kegiatan',{judul:document.getElementById('judul').value,lokasi:document.getElementById('lokasi').value,tanggal:document.getElementById('tanggal').value},{auth:token});load();});async function load(){var l=await api.get('/kegiatan');var out='';for(var i=0;i<l.length;i++){out+='<div>'+l[i].judul+' <button onclick="del(\''+l[i]._id+'\')">Hapus</button></div>';}document.getElementById('list').innerHTML=out;}async function del(id){await api.del('/kegiatan/'+id,{auth:token});load()}load();</script></body></html>
+<!doctype html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width,initial-scale=1' />
+    <title>Kegiatan Admin</title>
+    <link rel='stylesheet' href='/assets/css/style.css' />
+</head>
+
+<body>
+    <main class='container'>
+        <section class='card'>
+            <h2>CRUD Kegiatan</h2>
+            <form id='f'>
+                <div class='form-row'><input id='judul' placeholder='Judul' /></div>
+                <div class='form-row'><input id='lokasi' placeholder='Lokasi' /></div>
+                <div class='form-row'><input id='tanggal' type='date' /></div>
+                <div><button type='submit'>Tambah</button></div>
+            </form>
+            <div id='list'></div>
+        </section>
+    </main>
+    <script src='/assets/js/api.js'></script>
+    <script>
+        var token = localStorage.getItem('token');
+        if (!token) location.href = '/admin/login.html';
+        document.getElementById('f').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            await api.post('/kegiatan', {
+                judul: document.getElementById('judul').value,
+                lokasi: document.getElementById('lokasi').value,
+                tanggal: document.getElementById('tanggal').value
+            }, {
+                auth: token
+            });
+            load();
+        });
+        async function load() {
+            var l = await api.get('/kegiatan');
+            var out = '';
+            for (var i = 0; i < l.length; i++) {
+                out += '<div>' + l[i].judul + ' <button onclick="del(\'' + l[i]._id + '\')">Hapus</button></div>';
+            }
+            document.getElementById('list').innerHTML = out;
+        }
+        async function del(id) {
+            await api.del('/kegiatan/' + id, {
+                auth: token
+            });
+            load()
+        }
+        load();
+    </script>
+</body>
+
+</html>

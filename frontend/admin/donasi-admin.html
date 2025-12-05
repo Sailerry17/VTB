@@ -1,1 +1,56 @@
-<!doctype html><html><head><meta charset='utf-8'/><meta name='viewport' content='width=device-width,initial-scale=1'/><title>Donasi Admin</title><link rel='stylesheet' href='/assets/css/style.css'/></head><body><main class='container'><section class='card'><h2>Donasi & Pengeluaran</h2><div id='don'></div><h3>Tambah Pengeluaran</h3><form id='e'><div class='form-row'><input id='note' placeholder='Keterangan'/></div><div class='form-row'><input id='amount' type='number' placeholder='Jumlah'/></div><div><button type='submit'>Tambah</button></div></form></section></main><script src='/assets/js/api.js'></script><script>var token=localStorage.getItem('token');if(!token) location.href='/admin/login.html';async function load(){var d=await api.get('/donasi');var p=await api.get('/pengeluaran');var out='<h4>Donasi</h4>';for(var i=0;i<d.length;i++){out+='<div>'+ (d[i].nama||'Anonim') + ' - Rp ' + Number(d[i].jumlah).toLocaleString() + '</div>';}out+='<h4>Pengeluaran</h4>';for(var j=0;j<p.length;j++){out+='<div>'+ p[j].note + ' - Rp ' + Number(p[j].amount).toLocaleString() + '</div>';}document.getElementById('don').innerHTML=out;}document.getElementById('e').addEventListener('submit',async function(ev){ev.preventDefault();await api.post('/pengeluaran',{note:document.getElementById('note').value,amount:Number(document.getElementById('amount').value)},{auth:token});load()});load();</script></body></html>
+<!doctype html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width,initial-scale=1' />
+    <title>Donasi Admin</title>
+    <link rel='stylesheet' href='/assets/css/style.css' />
+</head>
+
+<body>
+    <main class='container'>
+        <section class='card'>
+            <h2>Donasi & Pengeluaran</h2>
+            <div id='don'></div>
+            <h3>Tambah Pengeluaran</h3>
+            <form id='e'>
+                <div class='form-row'><input id='note' placeholder='Keterangan' /></div>
+                <div class='form-row'><input id='amount' type='number' placeholder='Jumlah' /></div>
+                <div><button type='submit'>Tambah</button></div>
+            </form>
+        </section>
+    </main>
+    <script src='/assets/js/api.js'></script>
+    <script>
+        var token = localStorage.getItem('token');
+        if (!token) location.href = '/admin/login.html';
+        async function load() {
+            var d = await api.get('/donasi');
+            var p = await api.get('/pengeluaran');
+            var out = '<h4>Donasi</h4>';
+            for (var i = 0; i < d.length; i++) {
+                out += '<div>' + (d[i].nama || 'Anonim') + ' - Rp ' + Number(d[i].jumlah).toLocaleString() +
+                    '</div>';
+            }
+            out += '<h4>Pengeluaran</h4>';
+            for (var j = 0; j < p.length; j++) {
+                out += '<div>' + p[j].note + ' - Rp ' + Number(p[j].amount).toLocaleString() + '</div>';
+            }
+            document.getElementById('don').innerHTML = out;
+        }
+        document.getElementById('e').addEventListener('submit', async function (ev) {
+            ev.preventDefault();
+            await api.post('/pengeluaran', {
+                note: document.getElementById('note').value,
+                amount: Number(document.getElementById('amount').value)
+            }, {
+                auth: token
+            });
+            load()
+        });
+        load();
+    </script>
+</body>
+
+</html>

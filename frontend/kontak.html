@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desain Web Sederhana</title>
-    <link rel="stylesheet" href="/VTB/frontend/assets/css/style.css">
+    <title>Web VTB</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
     <header>
-        <h1>Nama Situs Web Anda</h1>
+        <img src="assets/img/Logo-vtb.png" alt="Logo-VTB" class="header-logo">
+        <div class="header-text">
+            <h1>VTB NSP</h1>
+            <p class="page-indicator">Kontak</p>
+        </div>
+
+        <button class="menu-button" id="menuToggle">
+            &#9776;
+        </button>
     </header>
-    <div>
-    <nav>
-        <a href="/VTB/frontend/index.html">Beranda</a>
-        <a href="/VTB/frontend/visi-misi.html">Visi-Misi</a>
-        <a href="/VTB/frontend/donasi.html">Donasi</a>
-        <a href="/VTB/frontend/about.html">Tentang</a>
-        <a href="/VTB/frontend/setting.html">pengaturan</a>
+
+    <nav class="sidebar" id="sidebarMenu">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="berita.html">Berita</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="donasi.html">Donasi</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
     </nav>
-    </div>
 
     <div class="container">
         <main class="main-content-setting">
             <h2>Judul Konten Utama</h2>
-            <p>Ini adalah area konten utama. Di sini Anda bisa menempatkan artikel, deskripsi produk, atau informasi penting lainnya.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Ini adalah area konten utama. Di sini Anda bisa menempatkan artikel, deskripsi produk, atau informasi
+                penting lainnya.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.</p>
         </main>
 
         <aside class="sidebar">
@@ -42,6 +55,7 @@
         <p>&copy; 2025 Desain Web Sederhana. Hak Cipta Dilindungi.</p>
     </footer>
 
-
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>

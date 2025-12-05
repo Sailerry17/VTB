@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desain Web Sederhana</title>
-    <link rel="stylesheet" href="/VTB/frontend/assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web VTB</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
-    <header>
-        <h1>Nama Situs Web Anda</h1>
-    </header>
-    <div>
-    <nav>
-      <a href="/VTB/frontend/index.html">Beranda</a>
-      <a href="/VTB/frontend/visi-misi.html">Visi-Misi</a>
-      <a href="/VTB/frontend/donasi.html">Donasi</a>
-      <a href="/VTB/frontend/about.html">Tentang</a>
-      <a href="/VTB/frontend/setting.html">pengaturan</a>
-    </nav>
+  <header>
+    <img src="assets/img/Logo-vtb.png" alt="Logo-VTB" class="header-logo">
+    <div class="header-text">
+      <h1>VTB NSP</h1>
+      <p class="page-indicator">Donasi</p>
     </div>
+
+    <button class="menu-button" id="menuToggle">
+      &#9776;
+    </button>
+  </header>
+
+  <nav class="sidebar" id="sidebarMenu">
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="berita.html">Berita</a></li>
+      <li><a href="about.html">Tentang Kami</a></li>
+      <li><a href="donasi.html">Donasi</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+  </nav>
 
   <main class="container">
     <section class="sidebar">
       <h2>Donasi & Transparansi</h2>
       <form id="donasi-form">
-        <div class="form-row"><input type="text" id="nama" placeholder="Nama (opsional)"/></div>
-        <div class="form-row"><input type="number" id="jumlah" placeholder="Jumlah (Rupiah)" required/></div>
+        <div class="form-row"><input type="text" id="nama" placeholder="Nama (opsional)" /></div>
+        <div class="form-row"><input type="number" id="jumlah" placeholder="Jumlah (Rupiah)" required /></div>
         <button type="submit">Donasi</button>
       </form>
       <div id="msg"></div>
@@ -38,34 +49,7 @@
     </section>
   </main>
   <footer class="footer">© 2025 Volunteer Tanggap Bencana</footer>
-  <script src="/assets/js/api.js"></script>
-  <script>
-    var form = document.getElementById('donasi-form');
-    var msg = document.getElementById('msg');
-    form.addEventListener('submit', async function(e){
-      e.preventDefault();
-      var nama = document.getElementById('nama').value;
-      var jumlah = Number(document.getElementById('jumlah').value);
-      try {
-        await api.post('/donasi', { nama: nama, jumlah: jumlah });
-        msg.innerText = 'Terima kasih atas donasi Anda.';
-        load();
-      } catch(err){ msg.innerText = 'Gagal donasi'; }
-    });
-    async function load(){
-      var list = await api.get('/donasi');
-      var el = document.getElementById('donasi-list');
-      if(!list.length) el.innerText = 'Belum ada donasi';
-      else {
-        var out = '';
-        for(var i=0;i<list.length;i++){
-          var d = list[i];
-          out += '<div>'+(i+1)+'. '+ (d.nama||'Anonim') + ' — Rp ' + Number(d.jumlah).toLocaleString() + ' (' + new Date(d.tanggal).toLocaleString() + ')</div>';
-        }
-        el.innerHTML = out;
-      }
-    }
-    load();
-  </script>
+  <script src="assets/js/script.js"></script>
 </body>
+
 </html>
