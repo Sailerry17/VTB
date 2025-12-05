@@ -1,53 +1,104 @@
 <!doctype html>
-<html>
+<html lang="id">
 
 <head>
     <meta charset='utf-8' />
     <meta name='viewport' content='width=device-width,initial-scale=1' />
-    <title>Artikel Admin</title>
-    <link rel='stylesheet' href='/assets/css/style.css' />
-</head>
+    <title>Manajemen Artikel Admin</title>
+    
+    <link rel='stylesheet' href='../frontend/assets/css/style.css' />
+    
+    </head>
 
 <body>
     <main class='container'>
         <section class='card'>
             <h2>Manajemen Artikel</h2>
+            
             <form id='fa'>
-                <div class='form-row'><input id='judul' placeholder='Judul' /></div>
-                <div class='form-row'><textarea id='konten' placeholder='Konten'></textarea></div>
-                <div><button type='submit'>Tambah</button></div>
+                <div class='form-row'><input id='judul' placeholder='Judul Artikel' required /></div>
+                <div class='form-row'><textarea id='konten' placeholder='Isi Konten Artikel' rows="10" required></textarea></div>
+                <div><button type='submit'>Tambah Artikel</button></div>
             </form>
-            <div id='alist'></div>
+            
+            <hr>
+            
+            <h3>Daftar Artikel</h3>
+            <div id='alist'>Belum ada artikel.</div>
         </section>
     </main>
-    <script src='/assets/js/api.js'></script>
+
+    <script src='../frontend/assets/js/api.js'></script>
+    
     <script>
+        // Cek Token dan Redirect
         var token = localStorage.getItem('token');
-        if (!token) location.href = '/admin/login.html';
+        if (!token) {
+            alert("Sesi berakhir. Silakan login kembali.");
+            location.href = 'login.html'; // Diasumsikan login.html ada di folder admin/
+        }
+
+        // --- 1. Fungsi Hapus (del) ---
+        // Fungsi del() dipindahkan ke global agar bisa dipanggil dari onclick
+        async function del(id) {
+            if (!confirm('Apakah Anda yakin ingin menghapus artikel ini?')) return;
+            
+            try {
+                await api.del('/artikel/' + id, {
+                    auth: token
+                });
+                alert('Artikel berhasil dihapus!');
+                load(); // Muat ulang daftar
+            } catch (error) {
+                alert('Gagal menghapus artikel: ' + error.message);
+            }
+        }
+        
+        // --- 2. Fungsi Muat Ulang Daftar (load) ---
+        async function load() {
+            try {
+                var a = await api.get('/artikel');
+                var out = '<ul>';
+                
+                for (var i = 0; i < a.length; i++) {
+                    // PENGGUNAAN ID DENGAN STRING LITERAL JAUH LEBIH AMAN:
+                    out += '<li>' + a[i].judul + 
+                           ' <button onclick="del(\'' + a[i]._id + '\')">Hapus</button></li>';
+                }
+                out += '</ul>';
+                
+                document.getElementById('alist').innerHTML = out;
+            } catch (error) {
+                document.getElementById('alist').innerHTML = 'Gagal memuat artikel.';
+                console.error('Error loading articles:', error);
+            }
+        }
+        
+        // --- 3. Listener Tambah Artikel ---
         document.getElementById('fa').addEventListener('submit', async function (e) {
             e.preventDefault();
-            await api.post('/artikel', {
-                judul: document.getElementById('judul').value,
-                konten: document.getElementById('konten').value
-            }, {
-                auth: token
-            });
-            load()
-        });
-        async function load() {
-            var a = await api.get('/artikel');
-            var out = '';
-            for (var i = 0; i < a.length; i++) {
-                out += '<div>' + a[i].judul + ' <button onclick="del(\'' + a[i]._id + '\')">Hapus</button></div>';
+            
+            const judulInput = document.getElementById('judul');
+            const kontenInput = document.getElementById('konten');
+
+            try {
+                await api.post('/artikel', {
+                    judul: judulInput.value,
+                    konten: kontenInput.value
+                }, {
+                    auth: token
+                });
+                
+                alert('Artikel berhasil ditambahkan!');
+                judulInput.value = ''; // Kosongkan input
+                kontenInput.value = ''; // Kosongkan textarea
+                load(); // Muat ulang daftar
+            } catch (error) {
+                alert('Gagal menambahkan artikel: ' + error.message);
             }
-            document.getElementById('alist').innerHTML = out;
-        }
-        async function del(id) {
-            await api.del('/artikel/' + id, {
-                auth: token
-            });
-            load()
-        }
+        });
+        
+        // Muat Daftar saat Halaman Pertama Kali Dibuka
         load();
     </script>
 </body>
