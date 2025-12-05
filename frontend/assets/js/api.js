@@ -24,3 +24,8 @@ var api = {
     return res.json();
   }
 };
+
+document.getElementById('hamburger-btn').onclick = function() {
+    // Fungsi ini akan dijalankan saat tombol hamburger diklik
+    document.getElementById('main-nav').classList.toggle('open');
+};

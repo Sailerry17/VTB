@@ -1,12 +1,187 @@
-body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f4f6f9;color:#111}
-.topbar{background:#0b5480;color:#fff;padding:14px}
-.topbar h1{margin:0;display:inline-block}
-.topbar nav{display:inline-block;margin-left:20px}
-.topbar nav a{color:#fff;margin-right:12px;text-decoration:none;font-weight:600}
-.container{max-width:980px;margin:20px auto;padding:0 16px}
-.card{background:#fff;padding:18px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.06);margin-bottom:16px}
-.form-row{margin-bottom:10px}
-input,textarea{width:100%;padding:8px;border:1px solid #cbd5e1;border-radius:6px}
-button{background:#0b5480;color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer}
-.footer{background:#fff;border-top:1px solid #e6eef6;padding:12px;text-align:center;margin-top:20px}
-.small{font-size:13px;color:#6b7280}
+/* 1. Reset Dasar dan Pengaturan Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #F9F9F9;
+    color: #343A40;
+}
+
+/* 2. Header (Kepala Halaman) */
+header {
+    background: #007BFF;
+    color: #FFFFFF;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    /* Aturan untuk Logo dan Ikon Tiga Garis */
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: relative; 
+    z-index: 9000;
+}
+
+header h1 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 2.5rem;
+}
+
+.header-logo {
+    height: 45px;
+    width: auto;
+    vertical-align: middle;
+}
+
+/* ------------------------------------------- */
+/* *** PERBAIKAN Z-INDEX PADA TOMBOL HAMBURGER *** */
+/* ------------------------------------------- */
+.hamburger-menu {
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: block; 
+    
+    /* Z-INDEX DAN POSISI UNTUK MEMASTIKAN BISA DIKLIK */
+    position: relative; /* HARUS ADA */
+    z-index: 9999; /* Z-index tertinggi */
+}
+
+/* ------------------------------------------- */
+/* Navigasi Sidebar (Berlaku Global di Semua Ukuran) */
+/* ------------------------------------------- */
+.nav-wrapper {
+    display: none;
+}
+
+nav.main-nav {
+    position: fixed;
+    top: 0;
+    
+    /* *** PERBAIKAN: TAMBAHKAN UNIT 'px' *** */
+    left: -250px; /* Nilai awal disembunyikan */
+    
+    height: 100%;
+    width: 250px;
+    background-color: #343A40; 
+    display: flex; /* Tambahkan display flex di sini */
+    flex-direction: column; 
+    align-items: flex-start;
+    padding-top: 60px; 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out; 
+    z-index: 1000;
+    max-width: none;
+}
+
+nav.main-nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    width: 100%;
+    padding: 15px 20px;
+    display: block;
+    border-bottom: 1px solid #495057;
+    transition: background-color 0.3s;
+    align-items: center;
+}
+
+nav.main-nav a:hover {
+    background-color: #007BFF;
+    align-items: center;
+}
+
+nav.main-nav.open {
+    left: 0; /* Pindahkan navigasi ke posisi terlihat */
+}
+
+/* 4. Wadah Konten Utama */
+.container {
+    width: 90%;
+    max-width: 1200px; 
+    margin: 20px auto;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+}
+
+/* 5. Tata Letak Main Content dan Sidebar (Gaya Flexbox - Desktop Default) */
+.container:last-of-type { 
+    display: flex;
+    gap: 30px; 
+}
+
+/* *** PERBAIKAN: Menggabungkan kelas konten yang berulang *** */
+.main-content,
+.main-content-visi,
+.main-content-setting {
+    flex: 3; 
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar {
+    flex: 1; 
+    background: #FFFFFF; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar h3 {
+    color: #007BFF; 
+    margin-bottom: 10px;
+    border-bottom: 2px solid #E9ECEF;
+    padding-bottom: 5px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #CED4DA; 
+}
+
+.sidebar li:last-child {
+    border-bottom: none;
+}
+
+/* 6. Footer */
+footer {
+    background: #007BFF;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+/* ------------------------------------------------ */
+/* 7. Responsif (Hanya untuk Kolom Konten) */
+/* ------------------------------------------------ */
+@media (max-width: 768px) {
+    /* HANYA ubah tata letak kolom konten/sidebar menjadi tumpukan */
+    .container:last-of-type {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* TAMBAHKAN INI SEMENTARA DI AKHIR CSS UNTUK DEBUGGING */
+.hamburger-menu {
+    pointer-events: auto !important; /* Memastikan tombol merespons klik */
+}

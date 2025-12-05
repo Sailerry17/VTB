@@ -1,58 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Volunteer Tanggap Bencana</title>
-  <link rel="stylesheet" href="/assets/css/style.css"/>
+    <title>Desain Web Sederhana</title>
+    <link rel="stylesheet" href="/VTB/frontend/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="container">
-      <h1>Volunteer Tanggap Bencana</h1>
-      <nav>
-        <a href="/index.html">Home</a>
-        <a href="/about.html">Tentang</a>
-        <a href="/visi-misi.html">Visi & Misi</a>
-        <a href="/kegiatan.html">Kegiatan</a>
-        <a href="/donasi.html">Donasi</a>
-        <a href="/admin/login.html">Admin</a>
-        <a href="/setting.html">pengaturan</a>
-      </nav>
+
+    <script src="/VTB/frontend/assets/js/script.js"></script> 
+</body>
+
+    <header>
+        <h1>Nama Situs Web Anda</h1>
+    </header>
+    <div>
+    <nav>
+      <a href="/VTB/frontend/index.html">Beranda</a>
+      <a href="/VTB/frontend/visi-misi.html">Struktural</a>
+      <a href="/VTB/frontend/donasi.html">Donasi</a>
+      <a href="/VTB/frontend/about.html">Tentang</a>
+      <a href="/VTB/frontend/setting.html">pengaturan</a>
+    </nav>
     </div>
-  </header>
 
-  <main class="container">
-    <section class="card">
-      <h2>Selamat Datang</h2>
-      <p>Volunteer Tanggap Bencana — bergerak cepat membantu korban bencana.</p>
-    </section>
+    <div class="container">
+        <main class="main-content">
+            <h2>Judul Konten Utama</h2>
+            <p>Ini adalah area konten utama. Di sini Anda bisa menempatkan artikel, deskripsi produk, atau informasi penting lainnya.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </main>
 
-    <section class="card" id="latest-kegiatan">
-      <h3>Kegiatan Terbaru</h3>
-      <div id="kegiatan-list">Memuat...</div>
-    </section>
-  </main>
+        <aside class="sidebar">
+            <h3>Sidebar</h3>
+            <ul>
+                <li>Item Sidebar 1</li>
+                <li>Item Sidebar 2</li>
+                <li>Item Sidebar 3</li>
+            </ul>
+        </aside>
+    </div>
 
-  <footer class="footer">
-    © 2025 Volunteer Tanggap Bencana
-  </footer>
+    <footer>
+        <p>&copy; 2025 Desain Web Sederhana. Hak Cipta Dilindungi.</p>
+    </footer>
 
-  <script src="/assets/js/api.js"></script>
-  <script>
-    // load kegiatan
-    api.get('/kegiatan').then(function(list){
-      var el = document.getElementById('kegiatan-list');
-      if(!list.length) el.innerText = 'Belum ada kegiatan';
-      else {
-        var html = '';
-        for(var i=0;i<list.length;i++){
-          var k = list[i];
-          html += '<div><strong>'+ (k.judul||'') +'</strong> — '+ (k.lokasi||'') + (k.tanggal?(' ('+ new Date(k.tanggal).toLocaleDateString() +')') : '') +'</div>';
-        }
-        el.innerHTML = html;
-      }
-    }).catch(function(e){ document.getElementById('kegiatan-list').innerText='Gagal memuat'; });
-  </script>
 </body>
 </html>
