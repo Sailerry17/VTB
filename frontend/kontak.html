@@ -4,58 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web VTB</title>
+    <title>VTB NSP - Kontak</title>
+
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="assets/css/footer.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+    <div class="main-content">
+        <header>
+            <img src="assets/img/Logo-VTB.png" alt="Logo-VTB" class="header-logo">
+            <div class="header-text">
+                <h1>VTB NSP</h1>
+                <p class="page-indicator">Kontak</p>
+            </div>
 
-    <header>
-        <img src="assets/img/Logo-VTB.png" alt="Logo-VTB" class="header-logo">
-        <div class="header-text">
-            <h1>VTB NSP</h1>
-            <p class="page-indicator">Kontak</p>
-        </div>
+            <button class="menu-button" id="menuToggle">
+                &#9776;
+            </button>
+        </header>
 
-        <button class="menu-button" id="menuToggle">
-            &#9776;
-        </button>
-    </header>
+        <nav class="sidebar" id="sidebarMenu">
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="berita.html">Berita</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="donasi.html">Donasi</a></li>
+                <li><a href="about.html">Tentang Kami</a></li>
+                <li><a href="kontak.html" class="active">Kontak</a></li>
+            </ul>
+        </nav>
 
-    <nav class="sidebar" id="sidebarMenu">
-        <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="berita.html">Berita</a></li>
-            <li><a href="about.html">Tentang Kami</a></li>
-            <li><a href="donasi.html">Donasi</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
-        </ul>
-    </nav>
+        <main>
+            <section id="tentang">
+                <h2 class="section-heading">Tentang Kami</h2>
+                <div class="section-content">
+                    <p>Kami adalah perusahaan yang berdedikasi pada visi dan misi kami. Halaman ini menjelaskan latar
+                        belakang
+                        kami.</p>
+                </div>
+            </section>
 
-    <div class="container">
-        <main class="main-content-setting">
-            <h2>Judul Konten Utama</h2>
-            <p>Ini adalah area konten utama. Di sini Anda bisa menempatkan artikel, deskripsi produk, atau informasi
-                penting lainnya.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.</p>
         </main>
 
-        <aside class="sidebar">
-            <h3>Sidebar</h3>
-            <ul>
-                <li>Item Sidebar 1</li>
-                <li>Item Sidebar 2</li>
-                <li>Item Sidebar 3</li>
-            </ul>
-        </aside>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Desain Web Sederhana. Hak Cipta Dilindungi.</p>
-    </footer>
-
+    <div id="footer-placeholder"></div>
     <script src="assets/js/script.js"></script>
+
+    <script src="assets/js/footer.js"></script>
+
 </body>
 
 </html>

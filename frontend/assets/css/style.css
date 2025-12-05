@@ -7,6 +7,12 @@ body {
     background-color: #f4f4f4;
     /* Memberi ruang yang cukup untuk header fixed (tinggi header + jarak ekstra, total 80px) */
     padding-top: 80px;
+
+    /* === PERUBAHAN STICKY FOOTER === */
+    min-height: 100vh; /* Memastikan body setinggi minimal viewport */
+    display: flex; /* Mengaktifkan Flexbox */
+    flex-direction: column; /* Mengatur item menumpuk secara vertikal */
+    /* =============================== */
 }
 
 /* ========================================================== */
@@ -126,6 +132,10 @@ main {
     max-width: 900px;
     margin: 0 auto;
     /* Margin dan Padding-top sudah diatur oleh BODY, jadi di sini 0 */
+}
+
+.main-content {
+    flex: 1;   /* konten mendorong footer ke bawah */
 }
 
 /* Aturan dasar yang berlaku untuk SEMUA kolom konten */
