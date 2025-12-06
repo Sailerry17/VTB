@@ -42,17 +42,55 @@
     padding: 0 70px;
 }
 
+.social-links {
+    margin-top: 15px;
+    
+    /* [PENTING] Mengatur item berbaris secara vertikal */
+    display: flex; 
+    flex-direction: column; 
+    
+    /* [PERBAIKAN] Gunakan gap untuk jarak vertikal antar tautan */
+    gap: 7px; 
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 10px 70px;
+}
+
+/* Aturan untuk SEMUA TAUTAN media sosial (Elemen Induk) */
 .social-links a {
     color: #a0a0a0;
-    font-size: 20px;
-    margin-right: 15px;
+    /* HAPUS font-size: 20px; dari sini */
     transition: color 0.3s;
-
+    
+    display: inline-flex; 
+    align-items: center;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
+/* 1. ATURAN KHUSUS UNTUK IKON (i) */
+.social-links a i {
+    font-size: 20px; 
+    margin-right: 5px;/* Ukuran KHUSUS untuk ikon */
+}
+
+/* 2. ATURAN KHUSUS UNTUK TEKS (@VTB) */
+.social-links a .span {
+    font-size: 16px; /* Ukuran KHUSUS untuk teks (misalnya 16px) */
+    font-weight: bold;
+    color: #a0a0a0; 
+    margin-left: 5px; 
+}
+
+/* PENTING: Aturan HOVER tetap pada <a> (Elemen Induk) */
+/* Karena tautan dan teks TIDAK MENGUBAH properti 'color' */
+/* dari warna #a0a0a0 (untuk ikon) dan #f1f1f1 (untuk teks), 
+   maka saat a:hover, semua warna akan diwarisi dari a:hover. */
 .social-links a:hover {
-    color: #0074D9; 
+    color: #0074D9; /* Seluruh ikon dan teks di dalam <a> akan berubah warna */
 }
+
 
 /* Kolom Link (Kolom 2 & 3) */
 .col-links ul {
