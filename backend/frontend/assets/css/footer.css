@@ -1,0 +1,257 @@
+/* Padding = Jarak dalam
+    Margin = Jarak luar (atas, kanan, bawah, kiri)
+                        (atas, kiri-kanan, bawah)
+                        (atas-bawah, kiri-kanan)
+    gap = jarak didalam container
+    content = teks atau gambar yang di dalam nya
+    border = garis tepi
+    max-width = membatasi lebar maksimal suatu elemen.
+
+
+
+    px : ukuran tetap
+    rem : mengikuti ukuran font
+    % mengikuti lebar layar
+    vh/vw : mengikuti tinggi/lebar viewport
+    auto : otomatis */
+/* ========================================================== */
+/* FOOTER MULTI-KOLOM (GAYA NPUFUND)     */
+/* ========================================================== */
+
+/* ========================================================== */
+/* 5. FOOTER (Hak Cipta)                    */
+/* ========================================================== */
+.footer {
+    background-image: linear-gradient(to right, #001f3f, #0074D9);
+    color: white;
+    text-align: center;
+    padding: 50px 10px 20px;
+    margin-top: 30px;
+    font-size: 14px;
+    /* Memberi sedikit jarak margin atas agar tidak menempel langsung ke section terakhir */
+    margin-top: 30px; 
+}
+
+/*Kolom Footer All*/
+.footer-container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/*Background Footer*/
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom sama rata */
+    gap: 20px;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+
+/*point Header
+    Meliputi Sub*/
+.footer-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.col-info, .col-links, .col-linkss, .col-kontak {
+    width: 100%;
+    text-align: left; /* biar seragam */
+}
+
+/*Kotak (VTB, Deskripsi, icon*/
+.col-info {
+    margin: 0px;
+    text-align: right;
+    padding: auto;
+}
+
+/* Kolom Info (Kolom 1)
+    Deskripsi VTB */
+.col-info .footer-desc {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #a0a0a0;
+
+    margin: auto;
+    text-align: left;
+    padding: auto;
+}
+
+/*Kotak Seluruh Icon*/
+.social-links {
+    margin-top: 15px;
+    
+    /* [PENTING] Mengatur item berbaris secara vertikal */
+    display: flex; 
+    flex-direction: column; 
+    
+    /* [PERBAIKAN] Gunakan gap untuk jarak vertikal antar tautan */
+    gap: 7px; 
+    margin: 0 auto;
+    text-align: left;
+    padding: px;
+}
+
+/* Aturan untuk SEMUA TAUTAN media sosial (Elemen Induk) (Icon) */
+.social-links a {
+    color: #a0a0a0;
+    /* HAPUS font-size: 20px; dari sini */
+    transition: color 0.3s;
+    
+    display: inline-flex; 
+    align-items: left;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* 1. ATURAN KHUSUS UNTUK IKON (i) */
+.social-links a i {
+    font-size: 20px; 
+    margin-right: 5px;/* Ukuran KHUSUS untuk ikon */
+}
+
+/* 2. ATURAN KHUSUS UNTUK TEKS (Medsos) */
+.social-links a .span {
+    font-size: 16px; /* Ukuran KHUSUS untuk teks (misalnya 16px) */
+    font-weight: bold;
+    color: #a0a0a0; 
+    margin-left: 5px; 
+}
+
+/* PENTING: Aturan HOVER tetap pada <a> (Elemen Induk) */
+/* Karena tautan dan teks TIDAK MENGUBAH properti 'color' */
+/* dari warna #a0a0a0 (untuk ikon) dan #f1f1f1 (untuk teks), 
+   maka saat a:hover, semua warna akan diwarisi dari a:hover. */
+.social-links a:hover {
+    color: #0074D9; /* Seluruh ikon dan teks di dalam <a> akan berubah warna */
+}
+
+
+/* Kolom Link (Kolom 2 & 3) */
+.col-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.col-links ul li {
+    margin-bottom: 10px;
+}
+
+/*Pilhan Program dan Informasi (Yang bisa di klik)*/
+.col-links ul li a {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.3s;
+    display: block;
+}
+
+.col-links ul li a:hover {
+    color: white;
+}
+
+
+
+/*Informasi*/
+
+/* Kolom Link (Kolom 2 & 3) */
+.col-linkss ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.col-linkss ul li {
+    margin-bottom: 10px;
+}
+
+/*Pilhan Program dan Informasi (Yang bisa di klik)*/
+.col-linkss ul li a {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.3s;
+    display: block;
+}
+
+.col-linkss ul li a:hover {
+    color: white;
+}
+
+
+
+
+
+/*Kotak Hubungi kami*/
+
+
+/* Kolom Kontak (Kolom  4)
+    Deskripsi Hubungi Kami*/
+.col-kontak p {
+    color: #a0a0a0;
+    font-size: 12px;
+    line-height: 1.6;
+
+    margin: 0 auto;
+    text-align: left;
+    padding: 0 ;
+}
+
+/* Baris Bawah (Copyright & Legal) */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    font-size: 12px;
+    color: #a0a0a0;
+}
+
+.footer-bottom .copyright {
+    margin: 5px 0;
+}
+
+.footer-legal a {
+    color: #a0a0a0;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.footer-legal a:hover {
+    color: white;
+}
+
+/* --- Media Queries untuk Responsif --- */
+@media (max-width: 1200px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+        gap: 15px; /* biar tidak terlalu rapat */
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .footer-legal a {
+        margin: 5px 10px;
+    }
+}
+
