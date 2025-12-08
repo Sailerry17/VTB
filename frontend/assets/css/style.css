@@ -214,15 +214,3 @@ main {
     background-color: #cc291e;
 }
 
-/* ========================================================== */
-/* 5. FOOTER (Hak Cipta)                    */
-/* ========================================================== */
-.footer {
-    background-image: linear-gradient(to right, #001f3f, #0074D9);
-    color: white;
-    text-align: center;
-    padding: 15px 20px;
-    font-size: 14px;
-    /* Memberi sedikit jarak margin atas agar tidak menempel langsung ke section terakhir */
-    margin-top: 30px; 
-}
