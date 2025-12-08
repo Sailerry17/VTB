@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Serve folder frontend
+// Serve frontend (folder di dalam backend)
 app.use(express.static(path.join(__dirname, "frontend")));
 
 // Serve folder upload
@@ -18,11 +18,12 @@ app.use("/uploads", express.static(path.join(__dirname, "my-upload")));
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.error("Mongo Error:", err));
+  .catch(err => console.error("Mongo Error:", err));
 
 // Routes
 const uploadRoutes = require("./routes/UploadRoute");
 app.use("/api/upload", uploadRoutes);
 
+// Port Render
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
