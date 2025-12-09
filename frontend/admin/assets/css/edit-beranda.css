@@ -1,0 +1,77 @@
+/* ====== GLOBAL ====== */
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f5f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* ====== CARD ====== */
+.card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* ====== FORM LABEL ====== */
+label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+/* ====== TEXTAREA ====== */
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+    resize: vertical;
+    background: #ffffff;
+    transition: 0.25s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+}
+
+/* ====== BUTTON SIMPAN ====== */
+button {
+    background: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.2s;
+    margin-top: 12px;
+}
+
+button:hover {
+    background: #1e60d4;
+    transform: translateY(-2px);
+}
+
+/* ====== PESAN STATUS ====== */
+#msg {
+    margin-top: 15px;
+    font-weight: 600;
+}

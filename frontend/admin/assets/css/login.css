@@ -1,0 +1,82 @@
+/* ===== GLOBAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f3f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* ===== WRAPPER ===== */
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+/* ===== CARD ===== */
+.card {
+    background:#ffffff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+/* ===== FORM ===== */
+.form-row {
+    margin-bottom: 15px;
+}
+
+.form-row input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.form-row input:focus {
+    border-color: #0a7cff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(10, 124, 255, 0.2);
+}
+
+/* ===== BUTTON ===== */
+button {
+    width: 100%;
+    padding: 12px 14px;
+    background: #0a7cff;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: .2s;
+}
+
+button:hover {
+    background: #0667d1;
+}
+
+/* ===== MESSAGE ===== */
+#m {
+    margin-top: 15px;
+    color: red;
+    font-size: 14px;
+}

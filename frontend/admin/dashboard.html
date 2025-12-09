@@ -5,19 +5,35 @@
     <meta charset='utf-8' />
     <meta name='viewport' content='width=device-width,initial-scale=1' />
     <title>Admin Dashboard</title>
-    <link rel='stylesheet' href='/assets/css/style.css' />
+    <link rel='stylesheet' href='/frontend/admin/assets/css/dashboard.css' />
 </head>
 
 <body>
     <main class='container'>
         <section class='card'>
             <h2>Admin Dashboard</h2>
-            <p><a href='/admin/kegiatan-admin.html'>Manajemen Kegiatan</a> | <a
-                    href='/admin/donasi-admin.html'>Manajemen Donasi</a> | <a href='/admin/artikel-admin.html'>Manajemen
-                    Artikel</a></p>
+
+            <!-- === MENU MANAJEMEN KONTEN WEBSITE === -->
+            <h3>Manajemen Halaman Website</h3>
+
+            <a class="feature-btn" href="edit-beranda.html">Edit Beranda</a>
+            <a class="feature-btn" href="edit-tentang-kami.html">Edit Tentang Kami</a>
+            <a class="feature-btn" href="edit-donasi.html">Edit Donasi</a>
+            <a class="feature-btn" href="edit-kontak.html">Edit Kontak</a>
+
+            <hr>
+
+            <h3>Manajemen Data</h3>
+
+            <a class="feature-btn" href="/admin/kegiatan-admin.html">Manajemen Kegiatan</a>
+            <a class="feature-btn" href="/admin/donasi-admin.html">Manajemen Donasi</a>
+            <a class="feature-btn" href="/admin/artikel-admin.html">Manajemen Artikel</a>
+
+
             <p><button id='logout'>Logout</button></p>
         </section>
     </main>
+
     <script>
         document.getElementById('logout').addEventListener('click', function () {
             localStorage.removeItem('token');

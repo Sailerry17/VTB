@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Admin Login</title>
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/frontend/admin/assets/css/login.css" />
 </head>
 
 <body>
@@ -21,23 +21,6 @@
         </section>
     </main>
     <script src="/assets/js/api.js"></script>
-    <script>
-        document.getElementById('login').addEventListener('submit', async function (e) {
-            e.preventDefault();
-            var u = document.getElementById('u').value;
-            var p = document.getElementById('p').value;
-            try {
-                var res = await api.post('/auth/login', {
-                    username: u,
-                    password: p
-                });
-                localStorage.setItem('token', res.token);
-                location.href = '/admin/dashboard.html';
-            } catch (err) {
-                document.getElementById('m').innerText = 'Login gagal'
-            }
-        });
-    </script>
 </body>
 
 </html>
