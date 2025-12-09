@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    /* Memberi ruang yang cukup untuk header fixed (tinggi header + jarak ekstra, total 80px) */
+    padding-top: 80px;
+
+    /* === PERUBAHAN STICKY FOOTER === */
+    min-height: 100vh; /* Memastikan body setinggi minimal viewport */
+    display: flex; /* Mengaktifkan Flexbox */
+    flex-direction: column; /* Mengatur item menumpuk secara vertikal */
+    /* =============================== */
+    
+
+}
+
+/* ========================================================== */
+/* 2. HEADER & LOGO                         */
+/* ========================================================== */
+header {
+    background-image: linear-gradient(to right, #401900, #dc5500);
+    color: white;
+    padding: 12px 20px;
+    display: grid;
+    grid-template-columns: 50px 1fr auto;
+    gap: 25px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border: 2px solid rgb(4, 255, 0);
+}
+
+/* Styling Logo */
+.header-logo {
+    grid-column: 1 / 2;
+    width: 100%;
+    height: auto;
+    max-height: 40px;
+    object-fit: contain;
+    border: 2px solid rgb(4, 255, 0);
+}
+
+/* Mengelompokkan Judul dan Keterangan */
+.header-text {
+    grid-column: 2 / 3;
+    border: 2px solid rgb(4, 255, 0);
+}
+
+/* Tombol Menu */
+.menu-button {
+    grid-column: 3 / 4;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 2px solid rgb(4, 255, 0);
+}
+
+.page-indicator {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    opacity: 0.8;
+    border: 2px solid rgb(4, 255, 0);
+}
+
+/* Menghilangkan Margin Bawaan h1 */
+header h1 {
+    margin: 0;
+    line-height: 1.2;
+    border: 2px solid rgb(38, 0, 255);
+}
+
+.menu-button:hover {
+    color: #c0c0c0;
+    border: 2px solid rgb(255, 0, 0);
+}
+.main-content {
+    flex: 1;   /* konten mendorong footer ke bawah */
+}
+
+/* ========================================================== */
+/* 3. SIDEBAR NAVIGASI                      */
+/* ========================================================== */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    top: 80px;
+    /* Dimulai di bawah header + jarak ekstra */
+    right: 0;
+    background-image: linear-gradient(to bottom, #401900, #dc5500);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 10px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgb(4, 255, 0);
+}
+
+/* Kelas untuk Menampilkan Sidebar */
+.sidebar.open {
+    width: 280px;
+    border: 2px solid rgb(255, 0, 183);
+}
+
+/* Item di Sidebar */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 2px solid rgb(4, 255, 0);
+}
+
+.sidebar li a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #b0c4de;
+    display: block;
+    transition: 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+}
+
+.sidebar li a:hover,
+.sidebar li a.active {
+    /* Styling untuk link yang sedang aktif */
+    color: #f1f1f1;
+    background-color: #dc5500;
+    padding-left: 35px;
+    
+}

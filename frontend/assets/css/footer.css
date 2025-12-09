@@ -22,7 +22,7 @@
 /* 5. FOOTER (Hak Cipta)                    */
 /* ========================================================== */
 .footer {
-    background-image: linear-gradient(to right, #001f3f, #0074D9);
+    background-image: linear-gradient(to right, #401900, #dc5500);
     color: white;
     text-align: center;
     padding: 50px 10px 20px;
@@ -48,8 +48,6 @@
     max-width: 1200px;
     margin: auto;
 }
-
-
 
 /*point Header
     Meliputi Sub*/
